@@ -1,0 +1,17 @@
+<div class="container" *ngIf="!isPresent">
+  <p style="color: red;">No Data Found...! Please add Employee Data.</p>
+</div>
+<div class="container" *ngIf="isPresent">
+  <table class="table" border="1">
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Salary</th>
+    </tr>
+    <tr *ngFor="let empData of dataOfEmployees">
+      <td>{{ empData[0].Name }}</td>
+      <td>{{ empData[0].email }}</td>
+      <td>{{ empData[0].salary}}</td>
+    </tr>
+  </table>
+</div>

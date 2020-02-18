@@ -1,0 +1,54 @@
+<div class="container">
+  <form #myForm="ngForm" (ngSubmit)="submit(data)">
+    <div class="form-group">
+      <label>Enter Salary</label>
+      <input
+        [(ngModel)]="data.salary"
+        name="salary"
+        class="form-control"
+        type="number"
+        placeholder="Enter Salary"
+        required
+        min="0"
+      />
+    </div>
+    <div class="form-group">
+      <input
+        type="hidden"
+        [(ngModel)]="data.operator_type"
+        name="operator_type"
+      />
+      <label>Select Operator</label>
+      <select
+        class="form-control"
+        name="operator_type"
+        [(ngModel)]="data.operator_type"
+        required
+      >
+        <option value="gt">Greater Than</option>
+        <option value="lt">Less Than</option>
+        <option value="eq">Equal To</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <button class="btn btn-primary btn-block" type="submit" [disabled]="!myForm.valid">Submit</button>
+    </div>
+  </form>
+</div>
+
+<div class="container">
+  <div class="container">
+    <table class="table" border="1">
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Salary</th>
+      </tr>
+      <tr *ngFor="let empData of filteredDataOfEmployees">
+        <td>{{ empData[0].Name }}</td>
+        <td>{{ empData[0].email }}</td>
+        <td>{{ empData[0].salary}}</td>
+      </tr>
+    </table>
+  </div>
+</div>
